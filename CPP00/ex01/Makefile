@@ -1,7 +1,7 @@
 NAME		= PhoneBook
 	
 CC			= c++
-FLAGS		= -Wall -Wextra -Werror -std=c++98
+FLAGS		= -Wall -Wextra -std=c++98
 RM			= rm -rf
 
 OBJDIR = .objFiles
@@ -16,15 +16,15 @@ HEADER		= Contact.hpp PhoneBook.hpp
 
 all: $(NAME)
 
-$(NAME): $(OBJ) $(HEADER)
-	@$(CC) $(OBJ) $(OPTS) -o $(NAME)
+$(NAME): $(OBJ)
+	@$(CC) $(FLAGS) $(OBJ) -o $(NAME)
 
 $(OBJDIR)/%.o: %.cpp $(HEADER)
 	@mkdir -p $(dir $@)
-	@$(CC) $(FLAGS) $(OPTS) -c $< -o $@
+	@$(CC) $(FLAGS) -c $< -o $@
 
 clean:
-	@$(RM) $(OBJDIR) $(OBJ)
+	@$(RM) $(OBJDIR)
 
 fclean: clean
 	@$(RM) $(NAME)

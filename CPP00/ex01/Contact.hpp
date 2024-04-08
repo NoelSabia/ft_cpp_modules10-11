@@ -15,14 +15,14 @@ class Contact
 
         std::string user_input(std::string str) const;
         std::string strlen(std::string str) const;
+        int         number(std::string str) const;
+        std::string max_signs(std::string str);
 
     public:
         Contact();
         ~Contact();
         void    init();
-        void    display_one_contacts(int index) const;
-        void    display_all_contacts(int index) const;
-        void    newIndex(int index);
+        void    search_user(int index);
 };
 
 #endif
