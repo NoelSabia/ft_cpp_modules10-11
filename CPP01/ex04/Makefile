@@ -1,4 +1,4 @@
-NAME		= PhoneBook
+NAME		= replace
 	
 CC			= c++
 FLAGS		= -Wall -Wextra -Werror -std=c++98
@@ -6,25 +6,24 @@ RM			= rm -rf
 
 OBJDIR = obj
 
-FILES		= main Contact PhoneBook
+FILES		= main replace replaceclass
 
 SRC			= $(FILES:=.cpp)
 OBJ			= $(addprefix $(OBJDIR)/, $(FILES:=.o))
-HEADER		= Contact.hpp PhoneBook.hpp
 
 .PHONY: all clean fclean re bonus norm
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@$(CC) $(FLAGS) $(OBJ) -o $(NAME)
+	@$(CC) $(OBJ) $(OPTS) -o $(NAME)
 
-$(OBJDIR)/%.o: %.cpp $(HEADER)
+$(OBJDIR)/%.o: %.cpp 
 	@mkdir -p $(dir $@)
-	@$(CC) $(FLAGS) -c $< -o $@
+	@$(CC) $(FLAGS) $(OPTS) -c $< -o $@
 
 clean:
-	@$(RM) $(OBJDIR)
+	@$(RM) $(OBJDIR) $(OBJ)
 
 fclean: clean
 	@$(RM) $(NAME)

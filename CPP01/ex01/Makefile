@@ -1,4 +1,4 @@
-NAME		= PhoneBook
+NAME		= zombieHorde
 	
 CC			= c++
 FLAGS		= -Wall -Wextra -Werror -std=c++98
@@ -6,25 +6,25 @@ RM			= rm -rf
 
 OBJDIR = obj
 
-FILES		= main Contact PhoneBook
+FILES		= main Zombie zombieHorde
 
 SRC			= $(FILES:=.cpp)
 OBJ			= $(addprefix $(OBJDIR)/, $(FILES:=.o))
-HEADER		= Contact.hpp PhoneBook.hpp
+HEADER		= Zombie.hpp
 
 .PHONY: all clean fclean re bonus norm
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	@$(CC) $(FLAGS) $(OBJ) -o $(NAME)
+$(NAME): $(OBJ) $(HEADER)
+	@$(CC) $(OBJ) $(OPTS) -o $(NAME)
 
 $(OBJDIR)/%.o: %.cpp $(HEADER)
 	@mkdir -p $(dir $@)
-	@$(CC) $(FLAGS) -c $< -o $@
+	@$(CC) $(FLAGS) $(OPTS) -c $< -o $@
 
 clean:
-	@$(RM) $(OBJDIR)
+	@$(RM) $(OBJDIR) $(OBJ)
 
 fclean: clean
 	@$(RM) $(NAME)
