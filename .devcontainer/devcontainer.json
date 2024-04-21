@@ -24,8 +24,8 @@
 				"editor.insertSpaces": false,
 				"editor.tabSize": 4,
 				"debug.onTaskErrors": "debugAnyway",
-				"42header.email": "jkauker@student.42.fr",
-				"42header.username": "jkauker"
+				"42header.email": "nsabia@student.42.fr",
+				"42header.username": "nsabia"
 			},
 			"extensions": [
 				"ms-vscode.cpptools",
