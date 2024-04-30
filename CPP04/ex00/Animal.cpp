@@ -2,7 +2,7 @@
 
 Animal::Animal() : type("aAnimal")
 {
-	std::cout << this->type << " consturctor called." << std::endl;
+	std::cout << this->type << " Animal consturctor called." << std::endl;
 }
 
 Animal::Animal(std::string type) : type(type)
