@@ -6,14 +6,15 @@
 #include <sstream>
 #include <string>
 
-class Replaceclass
+class Replace
 {
 	private:
 		std::string filename;
+		std::string resultfilename;
 
 	public:
-		Replaceclass(std::string filename);
-		~Replaceclass();
+		Replace(std::string filename);
+		~Replace();
 		void replace(std::string s1, std::string s2);
 };
 

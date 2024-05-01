@@ -1,4 +1,4 @@
-#include "replaceclass.hpp"
+#include "replace.hpp"
 
 int main(int argc, char *argv[])
 {
@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
 	}
 	else
 	{
-		Replaceclass replace(argv[1]);
+		Replace replace(argv[1]);
 		replace.replace(argv[2], argv[3]);
 	}
 	return 0;
