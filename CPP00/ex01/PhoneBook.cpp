@@ -1,6 +1,4 @@
 #include "PhoneBook.hpp"
-#include <iostream>
-#include <sstream>
 
 PhoneBook::PhoneBook()
 {
@@ -23,7 +21,7 @@ int PhoneBook::add(int index)
 {
     contacts[index].init();
     index++;
-    if (index == 7)
+    if (index == 8)
         index = 0;
     return (index);
 }

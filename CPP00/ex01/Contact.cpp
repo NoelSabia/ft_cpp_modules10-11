@@ -22,6 +22,7 @@ int Contact::number(std::string str) const
 		if (isdigit(str[i]) == false)
 			return (0);
 	}
+	return (1);
 }
 
 void Contact::init()
