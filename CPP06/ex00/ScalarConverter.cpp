@@ -21,7 +21,13 @@ ScalarConverter::~ScalarConverter()
 {
 }
 
+std::string	ScalarConverter::getString() const
+{
+	return ("");
+}
+
 void	ScalarConverter::converter(std::string str)
 {
 	std::cout << "hi" << std::endl;
 }
+https://github.com/youssefachehboune/cpp-42/blob/master/Module06/ex00/Convert.cpp
