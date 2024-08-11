@@ -55,7 +55,7 @@ bool BitcoinExchange::check_date_format(std::string &date)
 	if (first_hyphen == std::string::npos || second_hyphen == std::string::npos
 	||  date.find_first_not_of("0123456789.-") != std::string::npos)
 	{
-	    std::cerr << "oben" << "\"" << date << "\"" << '\n';
+	    std::cerr << date << "\"" << '\n';
 		return false;
 	}
 	return true;
@@ -75,7 +75,7 @@ bool BitcoinExchange::check_date_validity(std::string& date)
 			year = ft_stou(s);
 			if (year < 2009 || year > 2022)
 			{
-				std::cerr << "mitte" << "\"" << date << "\"" << '\n';
+				std::cerr << date << "\"" << '\n';
 				return false;
 			}
 		}
@@ -84,7 +84,7 @@ bool BitcoinExchange::check_date_validity(std::string& date)
 			month = ft_stou(s);
 			if (month < 1 || month > 12)
 			{
-				std::cerr << "unten" << "\"" << date << "\"" << '\n';
+				std::cerr << date << "\"" << '\n';
 				return false;
 			}
 		}
@@ -95,7 +95,7 @@ bool BitcoinExchange::check_date_validity(std::string& date)
 			||  (day == 31 && (month == 2 || month == 4 || month == 6 || month == 9 || month == 11))
 			||  (day > 28 && month == 2))
 			{
-				std::cerr << "ganz unten" << "\"" << date << "\"" << '\n';
+				std::cerr << date << "\"" << '\n';
 				return false;
 			}
 		}
@@ -103,7 +103,7 @@ bool BitcoinExchange::check_date_validity(std::string& date)
 	}
 	if (i != 3)
 	{
-		std::cerr << "hoelle" << "\"" << date << "\"" << '\n';
+		std::cerr << date << "\"" << '\n';
 		return false;
 	}
 	return true;
@@ -113,11 +113,11 @@ bool BitcoinExchange::check_rate_format(std::string& rate)
 {
 	if (rate.empty() || rate.find_first_not_of("0123456789.-") != std::string::npos
 	||  rate.at(0) == '.' || rate.find('.', rate.length() - 1) != std::string::npos)
-		std::cerr << "hoelle1" << "\"" << rate << "\"" << '\n';
+		std::cerr << rate << "\"" << '\n';
 	else if (rate.at(0) == '-')
-		std::cerr << "hoelle2" << '\n';
+		std::cerr << "Error: not a positive number." << '\n';
 	else if (rate.length() > 10 || (rate.length() == 10 && rate > "2147483647"))
-		std::cerr << "hoelle3" << '\n';
+		std::cerr << "Error: too large a number." << '\n';
 	else
 		return true;
 	return false;

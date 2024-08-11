@@ -26,7 +26,7 @@ int main(int argc, char **argv)
         size_t delim = line.find('|');
         if (delim == std::string::npos || line.length() < delim + 2)
         {
-            std::cout << " Error: bad input => " << "\"" << line << "\"" << std::endl;
+            std::cout << "Error: bad input => " << "\"" << line << "\"" << std::endl;
             continue;
         }
         std::string date = line.substr(0, delim - 1);
