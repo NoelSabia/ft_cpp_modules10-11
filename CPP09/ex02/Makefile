@@ -1,16 +1,16 @@
-NAME		= PMergeMe
+NAME		= PmergeMe
 	
 CC			= c++
-FLAGS		= -Wall -Wextra -Werror -std=c++98
+FLAGS		= -Wall -Wextra -Werror -std=c++17
 RM			= rm -rf
 
 OBJDIR = obj
 
-FILES		= main PMergeMe
+FILES		= main PmergeMe
 
 SRC			= $(FILES:=.cpp)
 OBJ			= $(addprefix $(OBJDIR)/, $(FILES:=.o))
-HEADER		= PMergeMe.hpp
+HEADER		= PmergeMe.hpp
 
 .PHONY: all clean fclean re
 

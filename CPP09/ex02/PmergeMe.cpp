@@ -1,4 +1,4 @@
-#include "PMergeMe.hpp"
+#include "PmergeMe.hpp"
 
 PmergeMe::PmergeMe()
 {
@@ -30,15 +30,15 @@ unsigned int ft_stou(const std::string& str)
 
 static void printVec(const std::vector<unsigned int>& vec)
 {
-    for (std::vector<unsigned int>::const_iterator it = vec.begin(); it != vec.end(); ++it)
-        std::cout << *it << " ";
+    for (auto value : vec)
+        std::cout << value << " ";
     std::cout << std::endl;
 }
 
 static void printList(const std::list<unsigned int>& lst)
 {
-    for (std::list<unsigned int>::const_iterator it = lst.begin(); it != lst.end(); ++it)
-        std::cout << *it << " ";
+    for (auto value : lst)
+        std::cout << value << " ";
     std::cout << std::endl;
 }
 
@@ -65,22 +65,19 @@ static std::vector<unsigned int> mergeInsertVec(std::vector<unsigned int>& vec)
     return mergeVecs(left, right);
 }
 
-void PmergeMe::sortVec(int argc, char **argv)
+void PmergeMe::sortVec(std::vector<unsigned int>& vector)
 {
-    std::vector<unsigned int> storage;
-    for (int i = 1; i < argc; ++i) storage.push_back(ft_stou(argv[i]));
 
     std::cout << "<vec>Before: ";
-    printVec(storage);
+    printVec(vector);
 
     std::clock_t start = std::clock();
-    storage = mergeInsertVec(storage);
+    vector = mergeInsertVec(vector);
     double time_taken = static_cast<double>(std::clock() - start) / CLOCKS_PER_SEC * 1e6;
 
     std::cout << "<vec>After: ";
-    printVec(storage);
-
-    std::cout << "Time to process a range of " << argc - 1 << " elements with std::vector<unsigned int>: " << time_taken << " µs" << std::endl;
+    printVec(vector);
+    std::cout << "Time to process a range of " << vector.size() - 1 << " elements with std::vector<unsigned int>: " << time_taken << " µs" << std::endl;
 }
 
 static std::list<unsigned int> mergeLists(std::list<unsigned int>& left, std::list<unsigned int>& right)
@@ -107,22 +104,18 @@ static std::list<unsigned int> mergeInsertList(std::list<unsigned int>& lst)
     return mergeLists(left, right);
 }
 
-void PmergeMe::sortList(int argc, char **argv)
+void PmergeMe::sortList(std::list<unsigned int>& list)
 {
-    std::list<unsigned int> storage;
-    for (int i = 1; i < argc; ++i) storage.push_back(ft_stou(argv[i]));
-
     std::cout << "<list>Before: ";
-    printList(storage);
+    printList(list);
 
     std::clock_t start = std::clock();
-    storage = mergeInsertList(storage);
+    list = mergeInsertList(list);
     double time_taken = static_cast<double>(std::clock() - start) / CLOCKS_PER_SEC * 1e6;
 
     std::cout << "<list>After: ";
-    printList(storage);
-
-    std::cout << "Time to process a range of " << argc - 1 << " elements with std::list<unsigned int>: " << time_taken << " µs" << std::endl;
+    printList(list);
+    std::cout << "Time to process a range of " << list.size() - 1 << " elements with std::list<unsigned int>: " << time_taken << " µs" << std::endl;
 }
 
 const char* PmergeMe::wrong_input_exception::what() const throw()

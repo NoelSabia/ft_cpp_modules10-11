@@ -22,8 +22,8 @@ class PmergeMe
         PmergeMe &operator=(const PmergeMe& to_copy);
         ~PmergeMe(void);
 
-        void sortVec(int argc, char **argv);
-        void sortList(int argc, char **argv);
+        void sortVec(std::vector<unsigned int> & vector);
+        void sortList(std::list<unsigned int> & list);
 
         class wrong_input_exception : public std::exception
         {
